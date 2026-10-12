@@ -1,0 +1,894 @@
+File: .\agent_orchestrator.py | Line: 426 | Duration: STEP_DELAY
+Context:
+else:
+                result_text = f"Already focused/executed {tool_name}({params}). Next, perform the action."
+                history.append({"step": step, "tool": tool_name, "params": params, "result": result_text})
+                time.sleep(STEP_DELAY)
+                continue
+--------------------------------------------------------------------------------
+File: .\agent_orchestrator.py | Line: 482 | Duration: STEP_DELAY
+Context:
+_dashboard.log_action(tool_name, f"ERROR: {exc}")
+
+        history.append({"step": step, "tool": tool_name, "params": params, "result": result_text})
+        time.sleep(STEP_DELAY)
+--------------------------------------------------------------------------------
+File: .\task2_1_browser_navigation.py | Line: 61 | Duration: 1
+Context:
+try:
+        cmd = f'start chrome "{url}"'
+        subprocess.Popen(cmd, shell=True)
+        time.sleep(1)
+        print("\nSUCCESS: Opened in your active Chrome browser window!")
+--------------------------------------------------------------------------------
+File: .\task2_2_form_interaction.py | Line: 202 | Duration: 0.3
+Context:
+elem = page.locator("input[type='text'], input[type='email'], textarea").first
+        if elem and elem.is_visible():
+            elem.click()
+            time.sleep(0.3)
+            elem.fill(val)
+--------------------------------------------------------------------------------
+File: .\task2_2_form_interaction.py | Line: 263 | Duration: 0.3
+Context:
+if chat_input:
+            chat_input.click()
+            time.sleep(0.3)
+            chat_input.fill(val)
+--------------------------------------------------------------------------------
+File: .\task2_2_form_interaction.py | Line: 265 | Duration: 0.3
+Context:
+chat_input.click()
+            time.sleep(0.3)
+            chat_input.fill(val)
+            time.sleep(0.3)
+            chat_input.press("Enter")
+--------------------------------------------------------------------------------
+File: .\task2_2_form_interaction.py | Line: 341 | Duration: 2
+Context:
+browser.close()
+            return
+
+        time.sleep(2)
+        print(f"Loaded Page: '{page.title()}' | URL: {page.url}")
+--------------------------------------------------------------------------------
+File: .\task2_2_form_interaction.py | Line: 352 | Duration: 1
+Context:
+try:
+                print(f"\n--- Step {idx}/{len(actions)} ---")
+                execute_action_step(page, step)
+                time.sleep(1)
+            except Exception as step_err:
+--------------------------------------------------------------------------------
+File: .\task2_4_desktop_interaction.py | Line: 110 | Duration: 2
+Context:
+print(f"  Window not found. Attempting to launch: '{app_hint}'...")
+    try:
+        subprocess.Popen([app_hint], shell=True)
+        time.sleep(2)
+        hwnd = find_window_by_partial_title(app_hint)
+--------------------------------------------------------------------------------
+File: .\task2_4_desktop_interaction.py | Line: 180 | Duration: 0.3
+Context:
+ctrl.double_click_input()
+        else:
+            ctrl.click_input()
+        time.sleep(0.3)
+        print(f"  Clicked '{target}' successfully.")
+--------------------------------------------------------------------------------
+File: .\task2_4_desktop_interaction.py | Line: 199 | Duration: 0.1
+Context:
+pyperclip.copy(value)
+        if clear_first:
+            send_keys("^a{DELETE}")
+            time.sleep(0.1)
+        send_keys("^v")
+--------------------------------------------------------------------------------
+File: .\task2_4_desktop_interaction.py | Line: 201 | Duration: 0.3
+Context:
+send_keys("^a{DELETE}")
+            time.sleep(0.1)
+        send_keys("^v")
+        time.sleep(0.3)
+        return {"success": True, "action": "type", "note": "typed via clipboard into focused element"}
+--------------------------------------------------------------------------------
+File: .\task2_4_desktop_interaction.py | Line: 206 | Duration: 0.2
+Context:
+try:
+        ctrl.set_focus()
+        time.sleep(0.2)
+        if clear_first:
+--------------------------------------------------------------------------------
+File: .\task2_4_desktop_interaction.py | Line: 209 | Duration: 0.1
+Context:
+time.sleep(0.2)
+        if clear_first:
+            ctrl.type_keys("^a{DELETE}")
+            time.sleep(0.1)
+        import pyperclip
+--------------------------------------------------------------------------------
+File: .\task2_4_desktop_interaction.py | Line: 213 | Duration: 0.3
+Context:
+import pyperclip
+        pyperclip.copy(value)
+        ctrl.type_keys("^v")
+        time.sleep(0.3)
+--------------------------------------------------------------------------------
+File: .\task2_4_desktop_interaction.py | Line: 251 | Duration: 0.3
+Context:
+"""Brings the window to the foreground and gives it focus."""
+    try:
+        window.set_focus()
+        time.sleep(0.3)
+        print(f"  Focused window: '{window.window_text()}'")
+--------------------------------------------------------------------------------
+File: .\task2_4_desktop_interaction.py | Line: 300 | Duration: 0.3
+Context:
+app, window = connect_to_app(app_hint)
+    window.set_focus()
+    time.sleep(0.3)
+--------------------------------------------------------------------------------
+File: .\task2_5_nl_pipeline.py | Line: 195 | Duration: 1.5
+Context:
+url = parse_natural_language_url(query)
+        print(f"  Resolved URL: {url}")
+        success = open_in_active_system_chrome(url)
+        time.sleep(1.5)
+        return {"success": success, "url": url}
+--------------------------------------------------------------------------------
+File: .\task2_5_nl_pipeline.py | Line: 202 | Duration: 1.5
+Context:
+import webbrowser
+        url = query if query.startswith("http") else f"https://www.{query}.com"
+        webbrowser.open(url)
+        time.sleep(1.5)
+        return {"success": True, "url": url, "note": "via webbrowser fallback"}
+--------------------------------------------------------------------------------
+File: .\task2_5_nl_pipeline.py | Line: 369 | Duration: 0.5
+Context:
+print(f"  [Error] Step {i} failed: {e}")
+            results.append({"step": i, "type": step_type, "success": False, "error": str(e)})
+
+        time.sleep(0.5)
+--------------------------------------------------------------------------------
+File: .\task3_1_calculator.py | Line: 199 | Duration: 1
+Context:
+subprocess.Popen(["calc.exe"])
+
+    for attempt in range(15):
+        time.sleep(1)
+        hwnd = find_calc_hwnd()
+--------------------------------------------------------------------------------
+File: .\task3_1_calculator.py | Line: 209 | Duration: 0.5
+Context:
+raise RuntimeError("Calculator did not open within timeout.")
+
+    app = Application(backend="uia").connect(handle=hwnd)
+    time.sleep(0.5)
+    return app
+--------------------------------------------------------------------------------
+File: .\task3_1_calculator.py | Line: 253 | Duration: 0.05
+Context:
+if btn is None:
+        raise RuntimeError(f"Calculator button '{label}' not found.")
+    btn.click_input()
+    time.sleep(0.05)
+--------------------------------------------------------------------------------
+File: .\task3_1_calculator.py | Line: 312 | Duration: 0.15
+Context:
+Windows Calculator versions without depending on button labels).
+    """
+    window.set_focus()
+    time.sleep(0.15)
+    # ESC clears current entry; a second ESC fully resets; Delete finalises
+--------------------------------------------------------------------------------
+File: .\task3_1_calculator.py | Line: 315 | Duration: 0.1
+Context:
+time.sleep(0.15)
+    # ESC clears current entry; a second ESC fully resets; Delete finalises
+    window.type_keys("{ESC}")
+    time.sleep(0.1)
+    window.type_keys("{ESC}")
+--------------------------------------------------------------------------------
+File: .\task3_1_calculator.py | Line: 317 | Duration: 0.1
+Context:
+window.type_keys("{ESC}")
+    time.sleep(0.1)
+    window.type_keys("{ESC}")
+    time.sleep(0.1)
+    window.type_keys("{DELETE}")
+--------------------------------------------------------------------------------
+File: .\task3_1_calculator.py | Line: 319 | Duration: 0.15
+Context:
+window.type_keys("{ESC}")
+    time.sleep(0.1)
+    window.type_keys("{DELETE}")
+    time.sleep(0.15)
+--------------------------------------------------------------------------------
+File: .\task3_1_calculator.py | Line: 329 | Duration: 0.2
+Context:
+whatever window happens to have OS focus.
+    """
+    window.set_focus()
+    time.sleep(0.2)
+--------------------------------------------------------------------------------
+File: .\task3_1_calculator.py | Line: 334 | Duration: 0.05
+Context:
+for tok in tokens:
+        if re.match(r"^[\d]+$", tok):
+            window.type_keys(tok)
+            time.sleep(0.05)
+        elif tok == ".":
+--------------------------------------------------------------------------------
+File: .\task3_1_calculator.py | Line: 337 | Duration: 0.05
+Context:
+time.sleep(0.05)
+        elif tok == ".":
+            window.type_keys(".")
+            time.sleep(0.05)
+        elif tok in _OP_KEYS:
+--------------------------------------------------------------------------------
+File: .\task3_1_calculator.py | Line: 340 | Duration: 0.08
+Context:
+time.sleep(0.05)
+        elif tok in _OP_KEYS:
+            window.type_keys(_OP_KEYS[tok])
+            time.sleep(0.08)
+--------------------------------------------------------------------------------
+File: .\task3_1_calculator.py | Line: 344 | Duration: 0.35
+Context:
+# Press Enter to compute result
+    window.type_keys("{ENTER}")
+    time.sleep(0.35)
+--------------------------------------------------------------------------------
+File: .\task3_1_calculator.py | Line: 353 | Duration: 0.2
+Context:
+Uses window.type_keys() to send digits directly to the Calculator window.
+    """
+    window.set_focus()
+    time.sleep(0.2)
+--------------------------------------------------------------------------------
+File: .\task3_1_calculator.py | Line: 357 | Duration: 0.1
+Context:
+num_str = str(int(number) if number == int(number) else number)
+    window.type_keys(num_str)
+    time.sleep(0.1)
+--------------------------------------------------------------------------------
+File: .\task3_1_calculator.py | Line: 363 | Duration: 0.2
+Context:
+# Try @ shortcut (works on some Calculator versions)
+        try:
+            window.type_keys("@")
+            time.sleep(0.2)
+        except Exception:
+--------------------------------------------------------------------------------
+File: .\task3_1_calculator.py | Line: 385 | Duration: 0.3
+Context:
+elif op == "%":
+        window.type_keys("{%}")
+
+    time.sleep(0.3)
+--------------------------------------------------------------------------------
+File: .\task3_1_calculator.py | Line: 394 | Duration: 0.3
+Context:
+Uses keyboard input as the primary strategy (zero button-name dependency).
+    """
+    press_clear(window)
+    time.sleep(0.3)
+--------------------------------------------------------------------------------
+File: .\task3_1_calculator.py | Line: 401 | Duration: 0.3
+Context:
+elif parsed["type"] == "expr":
+        enter_expression_via_keyboard(window, parsed["tokens"])
+
+    time.sleep(0.3)
+    return read_display(window)
+--------------------------------------------------------------------------------
+File: .\task3_1_calculator.py | Line: 447 | Duration: 0.5
+Context:
+app = launch_calculator()
+        window = get_calc_window(app)
+        window.set_focus()
+        time.sleep(0.5)
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Line: 124 | Duration: 1.5
+Context:
+capture_output=True, text=True
+        )
+        if result.returncode == 0:
+            time.sleep(1.5)
+            return {"success": True, "action": action, "interface": interface,
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Line: 169 | Duration: 0.4
+Context:
+methods = c.WmiMonitorBrightnessMethods()
+            if methods:
+                methods[0].WmiSetBrightness(level, 0)
+                time.sleep(0.4)
+                return {"success": True, "target": level, "actual": get_brightness()}
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Line: 181 | Duration: 0.4
+Context:
+capture_output=True, text=True
+        )
+        if result.returncode == 0:
+            time.sleep(0.4)
+            return {"success": True, "target": level, "actual": get_brightness()}
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Line: 223 | Duration: 0.15
+Context:
+try:
+        ep = _get_audio_endpoint()
+        ep.SetMasterVolumeLevelScalar(level / 100.0, None)
+        time.sleep(0.15)
+        return {"success": True, "target": level, "actual": get_volume()}
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Line: 233 | Duration: 0.1
+Context:
+try:
+        ep = _get_audio_endpoint()
+        ep.SetMute(1 if mute else 0, None)
+        time.sleep(0.1)
+        return {"success": True, "muted": get_mute_state()}
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Line: 282 | Duration: 1.5
+Context:
+["powershell", "-NoProfile", "-Command", cmd],
+            capture_output=True, text=True
+        )
+        time.sleep(1.5)
+        new_state = get_bluetooth_state()
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Line: 321 | Duration: 0.3
+Context:
+HWND_BROADCAST, WM_SETTINGCHANGE, 0,
+            "ImmersiveColorSet", 2, 5000, None
+        )
+        time.sleep(0.3)
+        actual = get_theme_mode()
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Line: 388 | Duration: 0.3
+Context:
+result = subprocess.run(
+        ["powercfg", "/setactive", best["guid"]], capture_output=True
+    )
+    time.sleep(0.3)
+    active = get_active_power_plan()
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Line: 419 | Duration: 0.5
+Context:
+capture_output=True, text=True
+        )
+        if result.returncode == 0:
+            time.sleep(0.5)
+            return {"success": True, "new_state": get_firewall_state()}
+--------------------------------------------------------------------------------
+File: .\task5_privacy_dashboard.py | Line: 225 | Duration: 1.2
+Context:
+else:
+                self._gui_thread = threading.Thread(target=self._build_gui, daemon=True)
+                self._gui_thread.start()
+                time.sleep(1.2)
+        else:
+--------------------------------------------------------------------------------
+File: .\task5_privacy_dashboard.py | Line: 727 | Duration: 1.0
+Context:
+("goal_completed",  f"Done: {goal}"),
+        ]
+        for tool, detail in steps:
+            time.sleep(1.0)
+            dash.log_action(tool, detail)
+--------------------------------------------------------------------------------
+File: .\task6_computer_control.py | Line: 199 | Duration: 0.6
+Context:
+import win32con
+            win32gui.ShowWindow(found_hwnd, win32con.SW_RESTORE)
+            win32gui.SetForegroundWindow(found_hwnd)
+            time.sleep(0.6)
+            return f"Brought '{app_name}' to foreground."
+--------------------------------------------------------------------------------
+File: .\task6_computer_control.py | Line: 219 | Duration: 3.5
+Context:
+subprocess.Popen([exe] + args)
+        else:
+            subprocess.Popen(exe, shell=True)
+        time.sleep(3.5)
+        return f"Launched '{app_name}' — waiting for it to open."
+--------------------------------------------------------------------------------
+File: .\task6_computer_control.py | Line: 225 | Duration: 3
+Context:
+# 3. Try via 'start' command with the name directly
+    try:
+        subprocess.Popen(["start", app_name], shell=True)
+        time.sleep(3)
+        return f"Attempted to launch '{app_name}' via system."
+--------------------------------------------------------------------------------
+File: .\task6_computer_control.py | Line: 247 | Duration: 0.3
+Context:
+key_map = {"enter": "enter", "return": "enter", "esc": "escape", "space": "space", "tab": "tab", "down": "down", "up": "up", "left": "left", "right": "right"}
+            clean_key = key_map.get(normalized, normalized)
+            pyautogui.press(clean_key)
+        time.sleep(0.3)
+        return f"Pressed key: {key}"
+--------------------------------------------------------------------------------
+File: .\task6_computer_control.py | Line: 261 | Duration: 0.2
+Context:
+print(f"  [type_anywhere] typing {len(text)} chars: {text[:60]!r}")
+    try:
+        pyperclip.copy(text)
+        time.sleep(0.2)
+        pyautogui.hotkey("ctrl", "v")
+--------------------------------------------------------------------------------
+File: .\task6_computer_control.py | Line: 263 | Duration: 0.4
+Context:
+pyperclip.copy(text)
+        time.sleep(0.2)
+        pyautogui.hotkey("ctrl", "v")
+        time.sleep(0.4)
+        return f"Typed: {text[:80]}"
+--------------------------------------------------------------------------------
+File: .\task6_computer_control.py | Line: 346 | Duration: 0.5
+Context:
+print(f"  [click_text] found '{found_word}' at ({x}, {y}), conf={conf}. Clicking.")
+        pyautogui.click(x, y)
+        time.sleep(0.5)
+        return f"Clicked '{found_word}' at ({x}, {y})."
+--------------------------------------------------------------------------------
+File: .\task6_computer_control.py | Line: 358 | Duration: 0.1
+Context:
+def clear_input() -> str:
+    """Selects all text in the focused input and deletes it (Ctrl+A → Delete)."""
+    send_keys("^a")
+    time.sleep(0.1)
+    send_keys("{DELETE}")
+--------------------------------------------------------------------------------
+File: .\task6_computer_control.py | Line: 360 | Duration: 0.1
+Context:
+send_keys("^a")
+    time.sleep(0.1)
+    send_keys("{DELETE}")
+    time.sleep(0.1)
+    return "Cleared input field."
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 57 | Duration: 0.5
+Context:
+app = Application(backend="uia").connect(title_re=title_re)
+            win = app.top_window()
+            win.set_focus()
+            time.sleep(0.5)
+            return win
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 60 | Duration: 1
+Context:
+time.sleep(0.5)
+            return win
+        except Exception:
+            time.sleep(1)
+    return None
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 68 | Duration: 0.3
+Context:
+"""Pastes text via clipboard (avoids unicode issues with send_keys)."""
+    pyperclip.copy(text)
+    send_keys("^v")
+    time.sleep(0.3)
+    if send:
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 71 | Duration: 0.5
+Context:
+time.sleep(0.3)
+    if send:
+        send_keys("{ENTER}")
+        time.sleep(0.5)
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 105 | Duration: 4
+Context:
+subprocess.Popen([WHATSAPP_EXE])
+    else:
+        subprocess.Popen(["start", "whatsapp:"], shell=True)
+    time.sleep(4)
+    return _focus_window(r"(?i)WhatsApp", timeout=10)
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 122 | Duration: 0.5
+Context:
+try:
+        # Open new chat / search (Ctrl+F or Ctrl+N)
+        win.set_focus()
+        time.sleep(0.5)
+        send_keys("^f")   # search / find contact
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 124 | Duration: 0.8
+Context:
+win.set_focus()
+        time.sleep(0.5)
+        send_keys("^f")   # search / find contact
+        time.sleep(0.8)
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 129 | Duration: 1.5
+Context:
+# Type contact name
+        pyperclip.copy(contact)
+        send_keys("^v")
+        time.sleep(1.5)
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 133 | Duration: 1
+Context:
+# Press Enter to open the chat (or click first result)
+        send_keys("{ENTER}")
+        time.sleep(1)
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 142 | Duration: 0.3
+Context:
+)
+            msg_box.set_focus()
+            msg_box.type_keys(message, with_spaces=True)
+            time.sleep(0.3)
+            send_keys("{ENTER}")
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 147 | Duration: 0.3
+Context:
+except Exception:
+            # Fallback: click bottom area and paste
+            send_keys("{TAB}")
+            time.sleep(0.3)
+            _type_and_send(message, send=True)
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 150 | Duration: 0.5
+Context:
+time.sleep(0.3)
+            _type_and_send(message, send=True)
+
+        time.sleep(0.5)
+        return _ok(f"Sent '{message[:40]}' to {contact}", "whatsapp")
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 170 | Duration: 0.8
+Context:
+try:
+        win.set_focus()
+        send_keys("^f")
+        time.sleep(0.8)
+        pyperclip.copy(contact)
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 173 | Duration: 1.5
+Context:
+time.sleep(0.8)
+        pyperclip.copy(contact)
+        send_keys("^v")
+        time.sleep(1.5)
+        send_keys("{ENTER}")
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 175 | Duration: 1
+Context:
+send_keys("^v")
+        time.sleep(1.5)
+        send_keys("{ENTER}")
+        time.sleep(1)
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 231 | Duration: 5
+Context:
+subprocess.Popen([exe])
+    except Exception:
+        subprocess.Popen(["start", "spotify:"], shell=True)
+    time.sleep(5)
+    return _focus_window(r"(?i)Spotify", timeout=12)
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 241 | Duration: 0.3
+Context:
+if win is None:
+        return _err("Could not open Spotify.", "spotify")
+    win.set_focus()
+    time.sleep(0.3)
+    send_keys(_SPOTIFY_KEYS["play_pause"])
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 252 | Duration: 0.5
+Context:
+return _err("Could not open Spotify.", "spotify")
+    win.set_focus()
+    send_keys(_SPOTIFY_KEYS["next"])
+    time.sleep(0.5)
+    return _ok("Skipped to next track.", "spotify")
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 262 | Duration: 0.5
+Context:
+return _err("Could not open Spotify.", "spotify")
+    win.set_focus()
+    send_keys(_SPOTIFY_KEYS["prev"])
+    time.sleep(0.5)
+    return _ok("Went to previous track.", "spotify")
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 274 | Duration: 0.5
+Context:
+return _err("Could not open Spotify.", "spotify")
+
+    win.set_focus()
+    time.sleep(0.5)
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 278 | Duration: 0.8
+Context:
+# Open search
+    send_keys(_SPOTIFY_KEYS["search"])
+    time.sleep(0.8)
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 282 | Duration: 0.2
+Context:
+# Clear existing search and type query
+    send_keys("^a")
+    time.sleep(0.2)
+    pyperclip.copy(query)
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 285 | Duration: 1.5
+Context:
+time.sleep(0.2)
+    pyperclip.copy(query)
+    send_keys("^v")
+    time.sleep(1.5)
+    send_keys("{ENTER}")
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 287 | Duration: 2
+Context:
+send_keys("^v")
+    time.sleep(1.5)
+    send_keys("{ENTER}")
+    time.sleep(2)
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 291 | Duration: 0.3
+Context:
+# Try to play first result: Tab to first item, Enter to play
+    send_keys("{TAB}{TAB}")
+    time.sleep(0.3)
+    send_keys("{ENTER}")
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 293 | Duration: 0.5
+Context:
+send_keys("{TAB}{TAB}")
+    time.sleep(0.3)
+    send_keys("{ENTER}")
+    time.sleep(0.5)
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 306 | Duration: 0.5
+Context:
+if win is None:
+        return _err("Spotify not open.", "spotify")
+    win.set_focus()
+    time.sleep(0.5)
+    ocr = _ocr_read()
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 320 | Duration: 0.1
+Context:
+key = _SPOTIFY_KEYS["volume_up"] if direction == "up" else _SPOTIFY_KEYS["volume_down"]
+    for _ in range(3):
+        send_keys(key)
+        time.sleep(0.1)
+    return _ok(f"Volume {direction}.", "spotify")
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 376 | Duration: 6
+Context:
+subprocess.Popen([DISCORD_EXE, "--processStart", "Discord.exe"])
+    else:
+        subprocess.Popen(["start", "discord:"], shell=True)
+    time.sleep(6)
+    return _focus_window(r"(?i)Discord", timeout=15)
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 391 | Duration: 0.5
+Context:
+return _err("Could not open Discord. Is it installed?", "discord")
+
+    win.set_focus()
+    time.sleep(0.5)
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 395 | Duration: 0.8
+Context:
+# Open quick switcher
+    send_keys(_DISCORD_KEYS["quick_switcher"])
+    time.sleep(0.8)
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 399 | Duration: 0.2
+Context:
+# Clear and type channel name
+    send_keys("^a")
+    time.sleep(0.2)
+    pyperclip.copy(channel)
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 402 | Duration: 1
+Context:
+time.sleep(0.2)
+    pyperclip.copy(channel)
+    send_keys("^v")
+    time.sleep(1)
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 406 | Duration: 1
+Context:
+# Select first result
+    send_keys("{DOWN}{ENTER}")
+    time.sleep(1)
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 426 | Duration: 0.5
+Context:
+return _err("Lost Discord window after navigation.", "discord")
+
+    win.set_focus()
+    time.sleep(0.5)
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 437 | Duration: 0.3
+Context:
+)
+        msg_box.set_focus()
+        msg_box.type_keys(message, with_spaces=True)
+        time.sleep(0.3)
+        send_keys("{ENTER}")
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 443 | Duration: 0.3
+Context:
+# Fallback: just paste (Discord message box is usually focused after nav)
+        pyperclip.copy(message)
+        send_keys("^v")
+        time.sleep(0.3)
+        send_keys("{ENTER}")
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 446 | Duration: 0.5
+Context:
+time.sleep(0.3)
+        send_keys("{ENTER}")
+
+    time.sleep(0.5)
+    return _ok(f"Sent message to #{channel}: '{message[:60]}'", "discord")
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Line: 455 | Duration: 1
+Context:
+nav = discord_navigate_channel(channel)
+    if not nav["success"]:
+        return nav
+    time.sleep(1)
+    ocr = _ocr_read()
+--------------------------------------------------------------------------------
+File: .\execution\browser.py | Line: 100 | Duration: 1
+Context:
+if context.page is None or context.page.is_closed():
+        raise RuntimeError("No active browser page is open.")
+    context.page.go_back()
+    time.sleep(1)
+    print(f"  Navigated back to: '{context.page.title()}' ({context.page.url})")
+--------------------------------------------------------------------------------
+File: .\execution\browser.py | Line: 108 | Duration: 1
+Context:
+if context.page is None or context.page.is_closed():
+        raise RuntimeError("No active browser page is open.")
+    context.page.go_forward()
+    time.sleep(1)
+    print(f"  Navigated forward to: '{context.page.title()}' ({context.page.url})")
+--------------------------------------------------------------------------------
+File: .\execution\browser.py | Line: 137 | Duration: 0.4
+Context:
+try:
+            if loc.count() > 0 and loc.first.is_visible():
+                loc.first.fill(value)
+                time.sleep(0.4)
+                if submit:
+--------------------------------------------------------------------------------
+File: .\execution\browser.py | Line: 140 | Duration: 1.5
+Context:
+time.sleep(0.4)
+                if submit:
+                    loc.first.press("Enter")
+                    time.sleep(1.5)
+                    return f"Filled '{field}' with '{value}' and submitted. Now on: {context.page.title()}"
+--------------------------------------------------------------------------------
+File: .\execution\browser.py | Line: 148 | Duration: 0.3
+Context:
+# OS-level paste fallback
+    pyperclip.copy(value)
+    time.sleep(0.3)
+    send_keys("^v")
+--------------------------------------------------------------------------------
+File: .\execution\browser.py | Line: 152 | Duration: 1
+Context:
+send_keys("^v")
+    if submit:
+        send_keys("{ENTER}")
+        time.sleep(1)
+    return f"Filled (clipboard paste) '{value}' into active field."
+--------------------------------------------------------------------------------
+File: .\execution\browser.py | Line: 168 | Duration: 0.8
+Context:
+for fn in strategies:
+            try:
+                fn()
+                time.sleep(0.8)
+                return f"Clicked '{selector}'. Page: {context.page.title()}"
+--------------------------------------------------------------------------------
+File: .\execution\desktop.py | Line: 10 | Duration: 1
+Context:
+def action_open_app(context: AgentContext) -> str:
+    print("  [tool] open_app: launching Notepad")
+    subprocess.run(["taskkill", "/F", "/IM", "notepad.exe", "/T"], capture_output=True)
+    time.sleep(1)
+    subprocess.Popen(["notepad.exe"])
+--------------------------------------------------------------------------------
+File: .\execution\desktop.py | Line: 14 | Duration: 1
+Context:
+subprocess.Popen(["notepad.exe"])
+    app = None
+    for _ in range(10):
+        time.sleep(1)
+        try:
+--------------------------------------------------------------------------------
+File: .\execution\desktop.py | Line: 25 | Duration: 0.5
+Context:
+context.app = app
+    context.main_window = app.top_window()
+    context.main_window.set_focus()
+    time.sleep(0.5)
+    return "Notepad is open and focused."
+--------------------------------------------------------------------------------
+File: .\execution\desktop.py | Line: 36 | Duration: 0.3
+Context:
+edit = context.main_window.child_window(control_type="Edit")
+        pyperclip.copy(value)
+        edit.set_focus()
+        time.sleep(0.3)
+        send_keys("^a")
+--------------------------------------------------------------------------------
+File: .\execution\desktop.py | Line: 38 | Duration: 0.1
+Context:
+edit.set_focus()
+        time.sleep(0.3)
+        send_keys("^a")
+        time.sleep(0.1)
+        send_keys("^v")
+--------------------------------------------------------------------------------
+File: .\execution\desktop.py | Line: 40 | Duration: 0.5
+Context:
+send_keys("^a")
+        time.sleep(0.1)
+        send_keys("^v")
+        time.sleep(0.5)
+        return f"Typed {len(value)} characters into Notepad."
+--------------------------------------------------------------------------------
+File: .\execution\desktop.py | Line: 63 | Duration: 1.5
+Context:
+os.makedirs(os.path.dirname(full_path), exist_ok=True)
+
+    send_keys("^s")
+    time.sleep(1.5)
+    try:
+--------------------------------------------------------------------------------
+File: .\execution\desktop.py | Line: 69 | Duration: 0.3
+Context:
+dlg.set_focus()
+        name_box = dlg.child_window(auto_id="1001")
+        name_box.set_text(full_path)
+        time.sleep(0.3)
+        send_keys("{ENTER}")
+--------------------------------------------------------------------------------
+File: .\execution\desktop.py | Line: 71 | Duration: 1
+Context:
+name_box.set_text(full_path)
+        time.sleep(0.3)
+        send_keys("{ENTER}")
+        time.sleep(1)
+        # Handle overwrite dialog
+--------------------------------------------------------------------------------
+File: .\execution\desktop.py | Line: 77 | Duration: 0.5
+Context:
+overwrite = context.app.window(title_re=".*Notepad.*")
+            if overwrite.exists(timeout=2):
+                overwrite.child_window(title="Yes").click()
+                time.sleep(0.5)
+        except Exception:
+--------------------------------------------------------------------------------
+File: .\execution\desktop.py | Line: 83 | Duration: 0.5
+Context:
+except Exception:
+        pass
+    for _ in range(8):
+        time.sleep(0.5)
+        if os.path.exists(full_path):
+--------------------------------------------------------------------------------
+File: .\execution\filesystem.py | Line: 20 | Duration: 1
+Context:
+folder_display = os.path.basename(folder_path.rstrip("\\/"))
+    subprocess.Popen(["explorer.exe", folder_path])
+    for _ in range(10):
+        time.sleep(1)
+        try:
+--------------------------------------------------------------------------------

@@ -1,0 +1,521 @@
+File: .\agent_context.py | Func: cleanup | Line: 30 | Pass: True | Returns False/None: False
+except Exception:
+                pass
+--------------------------------------------------------------------------------
+File: .\agent_context.py | Func: cleanup | Line: 35 | Pass: True | Returns False/None: False
+except Exception:
+                pass
+--------------------------------------------------------------------------------
+File: .\agent_context.py | Func: cleanup | Line: 40 | Pass: True | Returns False/None: False
+except Exception:
+                pass
+--------------------------------------------------------------------------------
+File: .\agent_orchestrator.py | Func: <module> | Line: 180 | Pass: False | Returns False/None: False
+except Exception:
+    try:
+        from task4_1_recipe_store import RecipeStore
+        _recipe_store = RecipeStore()
+        print("  [Memory] Using TF-IDF recipe store (embedding upgrade unavailable).")
+    except Exception:
+        _recipe_store = None
+--------------------------------------------------------------------------------
+File: .\agent_orchestrator.py | Func: <module> | Line: 197 | Pass: False | Returns False/None: False
+except Exception as _de:
+    _dashboard = None
+    print(f"  [Dashboard] Not available: {_de}")
+--------------------------------------------------------------------------------
+File: .\agent_orchestrator.py | Func: <module> | Line: 64 | Pass: True | Returns False/None: False
+except Exception:
+        pass
+--------------------------------------------------------------------------------
+File: .\agent_orchestrator.py | Func: <module> | Line: 185 | Pass: False | Returns False/None: False
+except Exception:
+        _recipe_store = None
+--------------------------------------------------------------------------------
+File: .\agent_orchestrator.py | Func: agent_loop | Line: 307 | Pass: False | Returns False/None: False
+except Exception as e:
+            print(f"  LLM error: {e}")
+            return f"Agent stopped: LLM unreachable ({e})"
+--------------------------------------------------------------------------------
+File: .\agent_orchestrator.py | Func: agent_loop | Line: 474 | Pass: False | Returns False/None: False
+except Exception as exc:
+                result_text = f"ERROR: {exc}"
+                print(f"  {result_text}")
+                traceback.print_exc()
+                if _dashboard:
+                    _dashboard.log_action(tool_name, f"ERROR: {exc}")
+--------------------------------------------------------------------------------
+File: .\agent_orchestrator.py | Func: <module> | Line: 531 | Pass: False | Returns False/None: False
+except Exception as e:
+                print(f"\nAgent error: {e}")
+                traceback.print_exc()
+                goal = None
+--------------------------------------------------------------------------------
+File: .\config.py | Func: _get_registry_app_path | Line: 24 | Pass: True | Returns False/None: False
+except Exception:
+        pass
+--------------------------------------------------------------------------------
+File: .\config.py | Func: _get_registry_app_path | Line: 30 | Pass: True | Returns False/None: False
+except Exception:
+        pass
+--------------------------------------------------------------------------------
+File: .\module5_orchestrator.py | Func: <module> | Line: 230 | Pass: False | Returns False/None: False
+except Exception as e:
+            print(f"\nTask execution encountered an error: {e}")
+--------------------------------------------------------------------------------
+File: .\task2_1_browser_navigation.py | Func: open_in_active_system_chrome | Line: 64 | Pass: False | Returns False/None: True
+except Exception as e:
+        print(f"Could not dispatch directly to active Chrome: {e}")
+        return False
+--------------------------------------------------------------------------------
+File: .\task2_1_browser_navigation.py | Func: open_via_playwright | Line: 82 | Pass: True | Returns False/None: False
+except Exception:
+            pass
+--------------------------------------------------------------------------------
+File: .\task2_1_browser_navigation.py | Func: open_via_playwright | Line: 96 | Pass: False | Returns False/None: False
+except Exception:
+            alt_dir = os.path.expanduser("~\\AppData\\Local\\TaskForge\\ChromeProfile")
+            os.makedirs(alt_dir, exist_ok=True)
+            context = p.chromium.launch_persistent_context(
+                user_data_dir=alt_dir,
+                channel="chrome",
+                headless=headless,
+                viewport=None,
+                args=["--start-maximized"]
+            )
+--------------------------------------------------------------------------------
+File: .\task2_2_form_interaction.py | Func: resolve_plan_with_local_ai | Line: 76 | Pass: False | Returns False/None: False
+except Exception as e:
+        print(f"(Local AI offline or warming up: {e}. Using dynamic generic planner.)")
+--------------------------------------------------------------------------------
+File: .\task2_2_form_interaction.py | Func: find_element_by_semantic_match | Line: 169 | Pass: False | Returns False/None: False
+except Exception:
+            continue
+--------------------------------------------------------------------------------
+File: .\task2_2_form_interaction.py | Func: run_task_2_2 | Line: 326 | Pass: False | Returns False/None: False
+except Exception:
+            browser = p.chromium.launch(headless=use_headless, args=["--start-maximized"])
+--------------------------------------------------------------------------------
+File: .\task2_2_form_interaction.py | Func: find_element_by_semantic_match | Line: 178 | Pass: False | Returns False/None: False
+except Exception:
+                continue
+--------------------------------------------------------------------------------
+File: .\task2_2_form_interaction.py | Func: run_task_2_2 | Line: 353 | Pass: False | Returns False/None: False
+except Exception as step_err:
+                print(f"  Step {idx} Note: {step_err}")
+--------------------------------------------------------------------------------
+File: .\task2_2_form_interaction.py | Func: execute_action_step | Line: 215 | Pass: False | Returns False/None: False
+except Exception:
+                elem.select_option(value=val)
+                print(f"  SUCCESS: Selected value '{val}'.")
+--------------------------------------------------------------------------------
+File: .\task2_2_form_interaction.py | Func: execute_action_step | Line: 237 | Pass: False | Returns False/None: False
+except Exception:
+                elem.click()
+--------------------------------------------------------------------------------
+File: .\task2_2_form_interaction.py | Func: execute_action_step | Line: 258 | Pass: False | Returns False/None: False
+except Exception:
+                continue
+--------------------------------------------------------------------------------
+File: .\task2_4_desktop_interaction.py | Func: connect_to_app | Line: 103 | Pass: True | Returns False/None: False
+except Exception:
+        pass
+--------------------------------------------------------------------------------
+File: .\task2_4_desktop_interaction.py | Func: connect_to_app | Line: 115 | Pass: False | Returns False/None: False
+except Exception as e:
+        print(f"  Launch failed: {e}")
+--------------------------------------------------------------------------------
+File: .\task2_4_desktop_interaction.py | Func: find_control_in_window | Line: 162 | Pass: True | Returns False/None: False
+except Exception:
+        pass
+--------------------------------------------------------------------------------
+File: .\task2_4_desktop_interaction.py | Func: action_click | Line: 183 | Pass: False | Returns False/None: True
+except Exception as e:
+        return {"success": False, "error": str(e)}
+--------------------------------------------------------------------------------
+File: .\task2_4_desktop_interaction.py | Func: action_type_text | Line: 224 | Pass: False | Returns False/None: True
+except Exception as e:
+        return {"success": False, "error": str(e)}
+--------------------------------------------------------------------------------
+File: .\task2_4_desktop_interaction.py | Func: action_read_value | Line: 243 | Pass: False | Returns False/None: True
+except Exception as e:
+        return {"success": False, "error": str(e)}
+--------------------------------------------------------------------------------
+File: .\task2_4_desktop_interaction.py | Func: action_focus_window | Line: 254 | Pass: False | Returns False/None: True
+except Exception as e:
+        return {"success": False, "error": str(e)}
+--------------------------------------------------------------------------------
+File: .\task2_4_desktop_interaction.py | Func: list_window_controls | Line: 270 | Pass: True | Returns False/None: False
+except Exception:
+        pass
+--------------------------------------------------------------------------------
+File: .\task2_4_desktop_interaction.py | Func: find_control_in_window | Line: 149 | Pass: False | Returns False/None: False
+except Exception:
+            continue
+--------------------------------------------------------------------------------
+File: .\task2_4_desktop_interaction.py | Func: action_type_text | Line: 219 | Pass: True | Returns False/None: False
+except Exception:
+            pass
+--------------------------------------------------------------------------------
+File: .\task2_4_desktop_interaction.py | Func: action_read_value | Line: 239 | Pass: False | Returns False/None: False
+except Exception:
+            value = ctrl.window_text()
+--------------------------------------------------------------------------------
+File: .\task2_4_desktop_interaction.py | Func: find_control_in_window | Line: 160 | Pass: False | Returns False/None: False
+except Exception:
+                continue
+--------------------------------------------------------------------------------
+File: .\task2_4_desktop_interaction.py | Func: list_window_controls | Line: 268 | Pass: False | Returns False/None: False
+except Exception:
+                continue
+--------------------------------------------------------------------------------
+File: .\task2_5_nl_pipeline.py | Func: plan_with_ai | Line: 126 | Pass: False | Returns False/None: False
+except Exception as e:
+        print(f"  [AI] Offline or error: {e}. Falling back to rule-based planner.")
+--------------------------------------------------------------------------------
+File: .\task2_5_nl_pipeline.py | Func: execute_file_operation | Line: 298 | Pass: False | Returns False/None: True
+except Exception as e:
+        return {"success": False, "error": str(e)}
+--------------------------------------------------------------------------------
+File: .\task2_5_nl_pipeline.py | Func: execute_web_form_fill | Line: 214 | Pass: False | Returns False/None: True
+except Exception as e:
+            return {"success": False, "error": str(e)}
+--------------------------------------------------------------------------------
+File: .\task2_5_nl_pipeline.py | Func: execute_screen_read | Line: 229 | Pass: False | Returns False/None: True
+except Exception as e:
+            return {"success": False, "error": str(e)}
+--------------------------------------------------------------------------------
+File: .\task2_5_nl_pipeline.py | Func: execute_desktop_interact | Line: 252 | Pass: False | Returns False/None: True
+except Exception as e:
+            return {"success": False, "error": str(e)}
+--------------------------------------------------------------------------------
+File: .\task2_5_nl_pipeline.py | Func: run_pipeline | Line: 365 | Pass: False | Returns False/None: False
+except Exception as e:
+            print(f"  [Error] Step {i} failed: {e}")
+            results.append({"step": i, "type": step_type, "success": False, "error": str(e)})
+--------------------------------------------------------------------------------
+File: .\task3_1_calculator.py | Func: parse_nl_expression | Line: 138 | Pass: False | Returns False/None: False
+except Exception:
+        raise ValueError(f"Could not evaluate expression: '{expr_str}' from input '{user_input}'")
+--------------------------------------------------------------------------------
+File: .\task3_1_calculator.py | Func: evaluate_locally | Line: 161 | Pass: False | Returns False/None: True
+except Exception:
+        return None
+--------------------------------------------------------------------------------
+File: .\task3_1_calculator.py | Func: find_button | Line: 229 | Pass: True | Returns False/None: False
+except Exception:
+        pass
+--------------------------------------------------------------------------------
+File: .\task3_1_calculator.py | Func: find_button | Line: 242 | Pass: True | Returns False/None: False
+except Exception:
+        pass
+--------------------------------------------------------------------------------
+File: .\task3_1_calculator.py | Func: read_display | Line: 289 | Pass: True | Returns False/None: False
+except Exception:
+        pass
+--------------------------------------------------------------------------------
+File: .\task3_1_calculator.py | Func: read_display | Line: 276 | Pass: False | Returns False/None: False
+except Exception:
+            continue
+--------------------------------------------------------------------------------
+File: .\task3_1_calculator.py | Func: enter_unary_via_keyboard | Line: 365 | Pass: False | Returns False/None: False
+except Exception:
+            for label in ["\u221a", "\u221ax", "2\u221ax", "Square root"]:
+                btn = find_button(window, label)
+                if btn:
+                    btn.click_input()
+                    break
+--------------------------------------------------------------------------------
+File: .\task3_1_calculator.py | Func: find_button | Line: 240 | Pass: False | Returns False/None: False
+except Exception:
+                continue
+--------------------------------------------------------------------------------
+File: .\task3_1_calculator.py | Func: read_display | Line: 287 | Pass: False | Returns False/None: False
+except Exception:
+                continue
+--------------------------------------------------------------------------------
+File: .\task3_1_calculator.py | Func: normalize_num | Line: 458 | Pass: False | Returns False/None: True
+except Exception:
+                return None
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Func: get_wifi_interface | Line: 94 | Pass: True | Returns False/None: False
+except Exception:
+        pass
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Func: get_wifi_state | Line: 111 | Pass: True | Returns False/None: False
+except Exception:
+        pass
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Func: set_wifi | Line: 134 | Pass: False | Returns False/None: True
+except Exception as exc:
+        return {"success": False, "error": str(exc)}
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Func: get_brightness | Line: 160 | Pass: True | Returns False/None: False
+except Exception:
+        pass
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Func: set_brightness | Line: 198 | Pass: False | Returns False/None: True
+except Exception as exc:
+        return {"success": False, "error": str(exc)}
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Func: get_volume | Line: 220 | Pass: False | Returns False/None: True
+except Exception:
+        return None
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Func: get_mute_state | Line: 227 | Pass: False | Returns False/None: True
+except Exception:
+        return None
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Func: set_volume | Line: 242 | Pass: False | Returns False/None: True
+except Exception as exc:
+        return {"success": False, "error": str(exc)}
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Func: set_mute | Line: 256 | Pass: False | Returns False/None: True
+except Exception as exc:
+        return {"success": False, "error": str(exc)}
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Func: get_bluetooth_state | Line: 289 | Pass: False | Returns False/None: True
+except Exception:
+        return None
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Func: set_bluetooth | Line: 314 | Pass: False | Returns False/None: True
+except Exception as exc:
+        return {"success": False, "error": str(exc)}
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Func: get_theme_mode | Line: 329 | Pass: False | Returns False/None: True
+except Exception:
+        return None
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Func: set_theme_mode | Line: 357 | Pass: False | Returns False/None: True
+except Exception as exc:
+        return {"success": False, "error": str(exc)}
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Func: list_power_plans | Line: 385 | Pass: False | Returns False/None: False
+except Exception:
+        return []
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Func: get_firewall_state | Line: 444 | Pass: True | Returns False/None: False
+except Exception:
+        pass
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Func: set_firewall | Line: 466 | Pass: False | Returns False/None: True
+except Exception as exc:
+        return {"success": False, "error": str(exc)}
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Func: get_battery_saver_state | Line: 486 | Pass: True | Returns False/None: False
+except Exception:
+        pass
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Func: set_battery_saver | Line: 503 | Pass: True | Returns False/None: False
+except Exception:
+        pass
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Func: set_battery_saver | Line: 514 | Pass: False | Returns False/None: True
+except Exception as exc:
+        return {"success": False, "error": str(exc)}
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Func: handle_with_ai_powershell | Line: 641 | Pass: False | Returns False/None: True
+except Exception as exc:
+        return {"success": False, "message": f"AI fallback error: {exc}"}
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Func: handle_with_ai_powershell | Line: 644 | Pass: False | Returns False/None: True
+except Exception as exc:
+        return {"success": False, "message": f"AI fallback error: {exc}"}
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Func: get_brightness | Line: 150 | Pass: True | Returns False/None: False
+except Exception:
+            pass
+--------------------------------------------------------------------------------
+File: .\task3_2_system_settings.py | Func: set_brightness | Line: 180 | Pass: True | Returns False/None: False
+except Exception:
+            pass
+--------------------------------------------------------------------------------
+File: .\task4_2_embeddings.py | Func: _get_embedding | Line: 60 | Pass: True | Returns False/None: False
+except Exception:
+        pass
+--------------------------------------------------------------------------------
+File: .\task5_privacy_dashboard.py | Func: get_taskforge_stats | Line: 164 | Pass: True | Returns False/None: False
+except Exception:
+        pass
+--------------------------------------------------------------------------------
+File: .\task5_privacy_dashboard.py | Func: get_taskforge_stats | Line: 171 | Pass: True | Returns False/None: False
+except Exception:
+        pass
+--------------------------------------------------------------------------------
+File: .\task5_privacy_dashboard.py | Func: _build_gui | Line: 276 | Pass: False | Returns False/None: False
+except Exception:
+            F_TITLE = F_BADGE = F_MED = F_SMALL = F_MONO = F_INPUT = F_BTN = F_CLOCK = F_SPIN = F_STAT = None
+--------------------------------------------------------------------------------
+File: .\task5_privacy_dashboard.py | Func: get_all_connections | Line: 125 | Pass: True | Returns False/None: False
+except Exception:
+                pass
+--------------------------------------------------------------------------------
+File: .\task5_privacy_dashboard.py | Func: stop | Line: 234 | Pass: True | Returns False/None: False
+except Exception:
+                pass
+--------------------------------------------------------------------------------
+File: .\task5_privacy_dashboard.py | Func: _run | Line: 537 | Pass: False | Returns False/None: False
+except Exception as e:
+                result = f"Error: {e}"
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Func: _ocr_read | Line: 80 | Pass: False | Returns False/None: False
+except Exception:
+        return ""
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Func: whatsapp_send_message | Line: 146 | Pass: False | Returns False/None: False
+except Exception as e:
+        return _err(f"Send failed: {e}", "whatsapp")
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Func: whatsapp_read_last | Line: 174 | Pass: False | Returns False/None: False
+except Exception as e:
+        return _err(f"Read failed: {e}", "whatsapp")
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Func: _launch_spotify | Line: 222 | Pass: False | Returns False/None: False
+except Exception:
+        subprocess.Popen(["start", "spotify:"], shell=True)
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Func: discord_send_message | Line: 416 | Pass: False | Returns False/None: False
+except Exception:
+        # Fallback: just paste (Discord message box is usually focused after nav)
+        pyperclip.copy(message)
+        wait_for_clipboard_sync()
+        send_keys("^v")
+        send_keys("{ENTER}")
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Func: _focus_window | Line: 59 | Pass: True | Returns False/None: False
+except Exception:
+            pass
+--------------------------------------------------------------------------------
+File: .\task6_electron_apps.py | Func: whatsapp_send_message | Line: 140 | Pass: False | Returns False/None: False
+except Exception:
+            # Fallback: click bottom area and paste
+            send_keys("{TAB}")
+            _type_and_send(message, send=True)
+--------------------------------------------------------------------------------
+File: .\utils.py | Func: get_known_folder_path | Line: 27 | Pass: True | Returns False/None: False
+except Exception:
+            pass
+--------------------------------------------------------------------------------
+File: .\utils.py | Func: wait_for_clipboard_sync | Line: 109 | Pass: True | Returns False/None: False
+except Exception:
+            pass
+--------------------------------------------------------------------------------
+File: .\execution\browser.py | Func: is_chrome_running | Line: 34 | Pass: False | Returns False/None: True
+except Exception:
+        return False
+--------------------------------------------------------------------------------
+File: .\execution\browser.py | Func: clear_chrome_crash_bubble | Line: 62 | Pass: True | Returns False/None: False
+except Exception:
+        pass
+--------------------------------------------------------------------------------
+File: .\execution\browser.py | Func: action_open_browser | Line: 75 | Pass: False | Returns False/None: False
+except Exception as e:
+        return f"Error launching browser: {e}"
+--------------------------------------------------------------------------------
+File: .\execution\browser.py | Func: action_close_browser | Line: 83 | Pass: True | Returns False/None: False
+except Exception:
+        pass
+--------------------------------------------------------------------------------
+File: .\execution\browser.py | Func: action_close_browser | Line: 88 | Pass: True | Returns False/None: False
+except Exception:
+        pass
+--------------------------------------------------------------------------------
+File: .\execution\browser.py | Func: action_close_browser | Line: 93 | Pass: True | Returns False/None: False
+except Exception:
+        pass
+--------------------------------------------------------------------------------
+File: .\execution\browser.py | Func: action_click_browser_element | Line: 175 | Pass: False | Returns False/None: False
+except Exception as e:
+        return f"Could not click '{selector}': {e}"
+--------------------------------------------------------------------------------
+File: .\execution\browser.py | Func: action_read_page_content | Line: 197 | Pass: False | Returns False/None: False
+except Exception as e:
+        return f"Could not read page: {e}"
+--------------------------------------------------------------------------------
+File: .\execution\browser.py | Func: action_download_file | Line: 224 | Pass: False | Returns False/None: False
+except Exception as e:
+        return f"Download failed: {e}"
+--------------------------------------------------------------------------------
+File: .\execution\browser.py | Func: action_fill_form | Line: 143 | Pass: False | Returns False/None: False
+except Exception:
+            continue
+--------------------------------------------------------------------------------
+File: .\execution\browser.py | Func: action_click_browser_element | Line: 169 | Pass: False | Returns False/None: False
+except Exception:
+                continue
+--------------------------------------------------------------------------------
+File: .\execution\browser.py | Func: clear_chrome_crash_bubble | Line: 60 | Pass: True | Returns False/None: False
+except Exception:
+                    pass
+--------------------------------------------------------------------------------
+File: .\execution\desktop.py | Func: action_type_text | Line: 41 | Pass: False | Returns False/None: False
+except Exception as e:
+        raise RuntimeError(f"type_text failed: {e}")
+--------------------------------------------------------------------------------
+File: .\execution\desktop.py | Func: action_save_file | Line: 79 | Pass: True | Returns False/None: False
+except Exception:
+        pass
+--------------------------------------------------------------------------------
+File: .\execution\desktop.py | Func: action_save_file | Line: 77 | Pass: True | Returns False/None: False
+except Exception:
+            pass
+--------------------------------------------------------------------------------
+File: .\execution\filesystem.py | Func: action_open_folder | Line: 31 | Pass: True | Returns False/None: False
+except Exception:
+            pass
+--------------------------------------------------------------------------------
+File: .\perception\desktop.py | Func: observe_desktop | Line: 30 | Pass: True | Returns False/None: False
+except Exception:
+        pass
+--------------------------------------------------------------------------------
+File: .\perception\desktop.py | Func: observe_desktop | Line: 43 | Pass: True | Returns False/None: False
+except Exception:
+        pass
+--------------------------------------------------------------------------------
+File: .\perception\desktop.py | Func: observe_desktop | Line: 58 | Pass: True | Returns False/None: False
+except Exception:
+        pass
+--------------------------------------------------------------------------------
+File: .\perception\desktop.py | Func: action_read_screen | Line: 111 | Pass: False | Returns False/None: False
+except Exception as e:
+        return f"OCR failed: {e}"
+--------------------------------------------------------------------------------
+File: .\planning\agentic.py | Func: check_completion | Line: 67 | Pass: True | Returns False/None: False
+except Exception:
+        pass
+--------------------------------------------------------------------------------
+File: .\planning\agentic.py | Func: try_single_pass_router | Line: 189 | Pass: False | Returns False/None: False
+except Exception as exc:
+        t_model_end = time.perf_counter()
+        timings["model_time"] = t_model_end - t_model_start
+        timings["total_time"] = time.perf_counter() - t_start
+        print(f"  [Router] Model call or JSON parse error: {exc}")
+        return False, str(exc), timings
+--------------------------------------------------------------------------------
+File: .\planning\agentic.py | Func: try_single_pass_router | Line: 214 | Pass: False | Returns False/None: False
+except Exception as exc:
+        t_tool_end = time.perf_counter()
+        timings["tool_time"] = t_tool_end - t_tool_start
+        timings["total_time"] = time.perf_counter() - t_start
+        print(f"  [Router] Tool execution error: {exc}")
+        return False, f"Tool execution failed: {exc}", timings
+--------------------------------------------------------------------------------
+File: .\planning\llm_client.py | Func: check_and_preload_ollama | Line: 71 | Pass: False | Returns False/None: True
+except Exception as exc:
+        print(f"\n  [ERROR] Ollama server is NOT reachable at {Config.OLLAMA_TAGS_URL}: {exc}")
+        print("  Please make sure Ollama server is running ('ollama serve').\n")
+        return False
+--------------------------------------------------------------------------------
+File: .\planning\llm_client.py | Func: check_and_preload_ollama | Line: 94 | Pass: False | Returns False/None: True
+except Exception as exc:
+        print(f"  [WARNING] Could not preload model '{Config.OLLAMA_MODEL}': {exc}")
+        return False
+--------------------------------------------------------------------------------
+File: .\planning\llm_client.py | Func: ask_llm | Line: 35 | Pass: False | Returns False/None: False
+except Exception as e:
+            raise
+--------------------------------------------------------------------------------
+File: .\planning\llm_client.py | Func: parse_json_from | Line: 121 | Pass: False | Returns False/None: False
+except Exception:
+                continue
+--------------------------------------------------------------------------------
